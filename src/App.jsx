@@ -1,5 +1,5 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
-import HomePage from "./scenes/HomePage";
+import HomePage from "./scenes/homePage";
 import LoginPage from "./scenes/LoginPage";
 import ProfilePage from "./scenes/ProfilPage";
 import { useMemo } from "react";
