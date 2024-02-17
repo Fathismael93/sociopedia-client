@@ -27,4 +27,4 @@ jobs:
       - name: Delete old container
         run: docker rm -f sociopedia-client-container
       - name: Run Docker Container
-        run: docker run -d -p 3000:80 --name sociopedia-client-container fathismael93/sociopedia-client
+        run: docker run -d -p 443:80 --name sociopedia-client-container fathismael93/sociopedia-client

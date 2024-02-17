@@ -18,6 +18,8 @@ FROM nginx:1.23-alpine
 WORKDIR /usr/share/nginx/html
 RUN rm -rf *
 COPY --from=build /app/dist /usr/share/nginx/html
+COPY package.json .
+COPY vite.config.js .
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 ENTRYPOINT [ "nginx", "-g", "deamon off;" ]
