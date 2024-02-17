@@ -8,7 +8,7 @@ ENV VITE_SERVER_URL=$VITE_SERVER_URL
 
 # Build App
 WORKDIR /app
-COPY package.json .
+COPY package*.json .
 RUN npm install
 COPY . .
 RUN npm run build
@@ -17,6 +17,7 @@ RUN npm run build
 FROM nginx:1.23-alpine
 WORKDIR /usr/share/nginx/html
 RUN rm -rf *
-COPY --from=build /app/dist .
+COPY --from=build /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 ENTRYPOINT [ "nginx", "-g", "deamon off;" ]
